@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #fff;
+        width: 100%;
+        margin-top: 0;
+      }
+      .wrap {
+        width: 60%;
+        min-width: 356.5px;
+        max-width: 1000px;
+        margin: 200px auto;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .remaining {
+        position: relative;
+        width: 130px;
+        border-radius: 15px 15px 0 0;
+        background-color: #ff775f;
+        text-align: center;
+        font-weight: bold;
+      }
+      .container {
+        margin: 0 auto;
+        background-color: #33e99d;
+        border-radius: 0 0px 15px 15px;
+        padding: 30px;
+        box-shadow: 0px 0px 15px 10px rgba(176, 176, 176, 0.5);
+      }
+      .questionContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        align-items: center;
+      }
+      .count {
+        display: flex;
+        border-radius: 15px;
+      }
+      .getQuestionCount {
+        background-color: #33e99d;
+        border-radius: 15px 0 0 0;
+        padding: 10px;
+      }
+      .MissQuestionCount {
+        background-color: #ff775f;
+        border-radius: 0 15px 0 0;
+        padding: 10px;
+      }
+      .question {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .inputForm {
+        display: flex;
+        margin-top: 20px;
+      }
+      .input {
+        border: none;
+        padding: 10px;
+        border-radius: 15px 0 0 15px;
+        width: 60%;
+        font-size: 16px;
+      }
+      .input:focus {
+        outline: none;
+      }
+      .next {
+        border: none;
+        width: 70px;
+        border-radius: 0 15px 15px 0;
+        background-color: #000000;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .remaining {
+        padding: 10px;
+      }
+      .clear {
+        position: absolute;
+        top: 0;
+        width: 60%;
+        height: 500px;
+        min-width: 356.5px;
+        max-width: 1000px;
+        margin: 200px auto;
+        z-index: 99;
+        background-color: #33e99d;
+        display: none;
+        border-radius: 15px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+      }
+      .clear > div > p {
+        font-size: 20px;
+      }
+      .clearScore2 {
+        color: #ff2600;
+      }
+      .clearScore1 ul li,
+      .clearScore2 > ul li {
+        margin-top: 10px;
+      }
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="clear">
+        <div class="clearScore1">
+          <p>맞힌 개수 : 1</p>
+          <ul></ul>
+        </div>
+        <div class="clearScore2">
+          <p>틀린 개수 : 1</p>
+          <ul></ul>
+        </div>
+      </div>
+      <div class="header">
+        <div class="remaining"></div>
+        <div class="count">
+          <span class="getQuestionCount"></span>
+          <span class="MissQuestionCount"></span>
+        </div>
+      </div>
+      <div class="container">
+        <div class="questionContainer">
+          <div class="question"></div>
+        </div>
+        <div class="inputForm">
+          <input type="text" class="input" placeholder="답 입력" />
+          <button class="next">다음</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
