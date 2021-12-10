@@ -97,19 +97,24 @@
       .clear {
         position: absolute;
         top: 0;
-        width: 60%;
-        height: 500px;
+        width: 65%;
+        height: 700px;
         min-width: 356.5px;
         max-width: 1000px;
-        margin: 200px auto;
+        margin: 100px auto;
         z-index: 99;
         background-color: #33e99d;
         display: none;
         border-radius: 15px;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
         text-align: center;
+        overflow: scroll;
+        -ms-overflow-style: none;
+      }
+      .clear::-webkit-scrollbar {
+        display: none;
       }
       .clear > div > p {
         font-size: 20px;
@@ -117,9 +122,16 @@
       .clearScore2 {
         color: #ff2600;
       }
+      .clearScore2,
+      .clearScore2 {
+        max-width: 80%;
+        width: 80%;
+        margin: 0 auto;
+      }
       .clearScore1 ul li,
       .clearScore2 > ul li {
-        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 14px;
       }
       ul {
         list-style: none;
