@@ -1,4 +1,4 @@
-import { question } from './questionJson.js';
+import { question } from "./questionJson.js";
 
 let getQuestion = [];
 let missQuestion = [];
@@ -8,35 +8,33 @@ let getQuestionCount = 0;
 let MissQuestionCount = 0;
 let remaining = question.length;
 
-const $questionForm = document.querySelector('.question');
-const $input = document.querySelector('.input');
-const $next = document.querySelector('.next');
-const $getQuestionCount = document.querySelector('.getQuestionCount');
-const $MissQuestionCount = document.querySelector('.MissQuestionCount');
-const $remaining = document.querySelector('.remaining');
-const $clear = document.querySelector('.clear');
-const $clearScore1 = document.querySelector('.clearScore1>p');
-const $clearScore2 = document.querySelector('.clearScore2>p');
-const $clearScore1Ul = document.querySelector('.clearScore1>ul');
-const $clearScore2Ul = document.querySelector('.clearScore2>ul');
+const $questionForm = document.querySelector(".question");
+const $input = document.querySelector(".input");
+const $next = document.querySelector(".next");
+const $getQuestionCount = document.querySelector(".getQuestionCount");
+const $MissQuestionCount = document.querySelector(".MissQuestionCount");
+const $remaining = document.querySelector(".remaining");
+const $clear = document.querySelector(".clear");
+const $clearScore1 = document.querySelector(".clearScore1>p");
+const $clearScore2 = document.querySelector(".clearScore2>p");
+const $clearScore1Ul = document.querySelector(".clearScore1>ul");
+const $clearScore2Ul = document.querySelector(".clearScore2>ul");
 
 let randomQuestion = Math.floor(Math.random() * question.length);
 
 const changeQuestion = () => {
   if (question.length <= 0) {
-    $clear.style.display = 'flex';
-    document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+    $clear.style.display = "flex";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     $clearScore1.innerText = `맞힌 문제 : ${getQuestion.length}개`;
-    getQuestion.map((i) => {
-      const li = document.createElement('li');
-      $clearScore1Ul.appendChild(li).innerText = i[0].question;
-    });
     $clearScore2.innerText = `틀린 문제 : ${missQuestion.length}개`;
     missQuestion.map((i) => {
-      const li = document.createElement('li');
-      $clearScore2Ul.appendChild(li).innerText = i[0].question;
+      const li = document.createElement("li");
+      $clearScore2Ul.appendChild(
+        li
+      ).innerText = `${i[0].question} \n 정답 : ${i[0].answer}`;
     });
-    document.body.addEventListener('click', () => {
+    document.body.addEventListener("click", () => {
       location.reload();
     });
     return;
@@ -59,35 +57,35 @@ const printQuestion = (result) => {
 };
 
 const getQuestionEffect = () => {
-  $input.style.border = 'none';
-  $questionForm.style.color = '#000';
+  $input.style.border = "none";
+  $questionForm.style.color = "#000";
   QuestionCount++;
   printQuestion(1);
 };
 
 const missQuestionEffect = () => {
-  $input.style.border = 'none';
-  $questionForm.style.color = '#000';
+  $input.style.border = "none";
+  $questionForm.style.color = "#000";
   QuestionCount++;
   printQuestion(0);
 };
 
 const checkQuestion = () => {
   if ($input.value === question[randomQuestion].answer) {
-    $input.style.border = '3px solid #33e99d';
+    $input.style.border = "3px solid #33e99d";
     getQuestionCount++;
     $getQuestionCount.innerText = `맞힌 문제 : ${getQuestionCount}`;
-    $input.value = '';
-    $questionForm.innerText = '맞았습니다!';
-    $questionForm.style.color = '#33e99d';
+    $input.value = "";
+    $questionForm.innerText = "맞았습니다!";
+    $questionForm.style.color = "#33e99d";
     setTimeout(getQuestionEffect, 1000);
   } else {
-    $input.style.border = '3px solid #ff775f';
-    $input.value = '';
+    $input.style.border = "3px solid #ff775f";
+    $input.value = "";
     MissQuestionCount++;
     $MissQuestionCount.innerText = `틀린 문제 : ${MissQuestionCount}`;
     $questionForm.innerHTML = `틀렸습니다  <span style="color: #000;">정답 : ${question[randomQuestion].answer}</span>`;
-    $questionForm.style.color = '#ff775f';
+    $questionForm.style.color = "#ff775f";
     setTimeout(missQuestionEffect, 2000);
   }
 };
@@ -96,16 +94,16 @@ $questionForm.innerText = `${QuestionCount}번문제) ${question[randomQuestion]
 $getQuestionCount.innerText = `맞힌 문제 : ${getQuestionCount}`;
 $MissQuestionCount.innerText = `틀린 문제 : ${MissQuestionCount}`;
 $remaining.innerText = `남은 문제 : ${remaining}`;
-$next.addEventListener('click', () => {
-  if ($input.value == '') {
-    alert('답을 입력해주세요');
+$next.addEventListener("click", () => {
+  if ($input.value == "") {
+    alert("답을 입력해주세요");
   }
   checkQuestion();
 });
-$input.addEventListener('keypress', (event) => {
-  if (event.key == 'Enter') {
-    if ($input.value == '') {
-      alert('답을 입력해주세요');
+$input.addEventListener("keypress", (event) => {
+  if (event.key == "Enter") {
+    if ($input.value == "") {
+      alert("답을 입력해주세요");
       return;
     }
     checkQuestion();
