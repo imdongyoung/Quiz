@@ -101,7 +101,7 @@ export let question1 = [
   {
     question:
       "테스트 케이스 작성 및 관리, 개별 모듈 수시 빌드 및 배포, 빌드, 배포 내역 정상 여부 확인 및 수정 등을 담당",
-    answer: "",
+    answer: "개발자",
   },
   {
     question: "git 하위 디렉토리를 생성 ($ 제외)",
