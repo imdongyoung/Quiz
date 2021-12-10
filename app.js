@@ -1,4 +1,17 @@
-import { question } from "./questionJson.js";
+import { question1 } from "./questionJson.js";
+import { question2 } from "./questionJson.js";
+let question;
+
+const choseQuiz = prompt(
+  "문제 선택 \n1.애플리케이션 배포 \n2.응용SW기초기술 활용 \n3.애플리케이션 테스트 수행 \n4.UI테스트 "
+);
+
+if (choseQuiz == null) location.reload();
+else if (choseQuiz == 1) question = question1;
+else if (choseQuiz == 2) question = question2;
+else if (choseQuiz == 3) question = question1;
+else if (choseQuiz == 4) question = question1;
+else location.reload();
 
 let getQuestion = [];
 let missQuestion = [];
